@@ -1,0 +1,23 @@
+:root {
+  --color-light: #f0f0f0;
+  --color-dark: #1D4044;
+  --color-teal-100: #B2F5EA;
+  --color-teal-200: #81E6D9;
+  --color-teal-300: #4FD1C5;
+  --color-teal-400: #38B2AC;
+  --color-teal-500: #319795;
+  --color-teal-600: #285E61;
+
+  --light-mode-bg: var(--color-light);
+  --dark-mode-bg: var(--color-dark);
+  /*Negativo para los Botones o elementos*/
+  --light-mode-bg-negative: var(--color-dark);
+  --dark-mode-bg-negative: var(--color-light);
+
+  --light-mode-text: var(--color-dark);
+  --dark-mode-text: var(--color-light);
+  /*Negativo para la letra de Botones o elementos*/
+  --light-mode-text-negative: var(--color-light);
+  --dark-mode-text-negative: var(--color-dark);
+
+} 
