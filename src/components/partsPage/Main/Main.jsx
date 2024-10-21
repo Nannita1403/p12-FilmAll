@@ -1,5 +1,6 @@
 import Loader from "../../Loader/Loader";
-import PreviewTitles from "./PreviewMovie/PreviewTitles";
+import PreviewTitles from "../../PreviewMovie/PreviewTitles";
+
 
 const Main = () => {
   const { titles } = PreviewTitles();

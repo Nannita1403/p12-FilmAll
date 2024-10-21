@@ -1,14 +1,14 @@
 import { useContext } from 'react'
-import ChangeTheme from './components/ChangeTheme/ChangeTheme'
 import { Box } from '@chakra-ui/react'
 import { ThemeContext } from './providers/ThemePageProvider';
-//import Error from './components/AlertError/Error';
+import Error from './components/AlertError/Error';
 import Home from './pages/Home/Home';
-import { Route, Routes } from 'react-router-dom';
+import { useFetchData } from './providers/IMBFetch';
 //cambio visual del theme=por un estado
 const App = () => {
 //traigo light para el tema y configurarlo en el Box 
   const {light}= useContext(ThemeContext);
+  const {error} = useFetchData();
 
   return (
     <Box 
@@ -17,11 +17,9 @@ const App = () => {
       color={`var(--${light ? "light" : "dark"}-mode-text)`}
       transition="all 0.5s">
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />}/>
-      </Routes>
-   {/*<Error /> ||<Home/>*/}
+  <>
+   {error ? <Error/> :<Home/>}
+      </>
     </Box>
   )
 }
