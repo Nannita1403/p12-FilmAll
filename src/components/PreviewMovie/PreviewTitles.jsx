@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { IBMDataContext  } from "../../../providers/IMBFetch";
 import ImgDefault  from "/img_default.jpg"
-import { ThemeContext } from "../../../providers/ThemePageProvider";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { ThemeContext } from "../../providers/ThemePageProvider";
+import { DataContext } from "../../providers/DataFetch";
+
+
 
 const PreviewTitles = () => {
     const { light } = useContext(ThemeContext);
-    const { titles} = useContext(IBMDataContext);
+    const { titles} = useContext(DataContext);
 
     return (
         <Flex wrap='wrap'

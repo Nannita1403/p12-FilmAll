@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-export const IBMDataContext = createContext();
+export const DataContext = createContext();
 
 export const useFetchData = () => {
-	return useContext(IBMDataContext)
+	return useContext(DataContext)
   }
 export const IBMPeticion = ({ children }) => {
   const [loading, setLoading] = useState(true)
@@ -46,9 +46,9 @@ const contextValue = {
   }
 
   return (
-    <IBMDataContext.Provider value={contextValue}>
+    <DataContext.Provider value={contextValue}>
       {children}
-    </IBMDataContext.Provider>
+    </DataContext.Provider>
   )
 }
     
