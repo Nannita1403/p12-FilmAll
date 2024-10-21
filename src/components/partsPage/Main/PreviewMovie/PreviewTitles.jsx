@@ -6,11 +6,15 @@ import Loader from "../../../Loader/Loader";
 Loader
 
 const PreviewTitles = () => {
-   const { light } = useContext(ThemeContext);
-    const [titles, setTitles] = useState([[]]);
+    const [loading, setLoading] = useState(true)
+    const { light } = useContext(ThemeContext);
+    const [titles, setTitles] = useState([]);
+    const [error, setError] = useState(null)
 
     const getTitles = async ()=> {
-     // setTimeout(async () => {
+    	try {
+        setLoading(true)
+        
         const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?limit=49';
 	      const options = {
 	        method: 'GET',
@@ -24,8 +28,12 @@ const PreviewTitles = () => {
         console.log(response, "Soy la respuesta al fetch");
         setTitles(response.results); //los 49 titulos
         console.log(response.results); 
-        
-      //}, 5000);
+      } catch (error) {
+        console.error('Error fetching data:', error)
+        setError(error)
+        } finally {
+        setLoading(false)
+        }
     };
     
     useEffect(() => {
@@ -39,10 +47,12 @@ const PreviewTitles = () => {
         gap='20px'
         p='50px'
         pt='200px'>
+        {console.log(titles)
+        }
        {titles.length && titles.map((title) => (
             <Box key={title.id}>
-              <Link> to={title.primaryImage.url} </Link>
-              <Image w="200px" h='300px'/*src={title.primaryImage.url}*/ cursor='pointer'
+              {console.log(title)}
+              <Image w="200px" h='300px'src={title.primaryImage?.url || ImgDefault} cursor='pointer'
               //onClick={}
               filter={`drop-shadow(0px 0px 2px ${
                 light ? "var(--light-mode-bg-negative)" : "var(--dark-mode-bg-negative)"
