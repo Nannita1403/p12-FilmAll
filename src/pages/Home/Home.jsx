@@ -8,6 +8,7 @@ import Main from "../../components/partsPage/Main/Main";
 const Home = () => {
   return (
     <>
+    
   {/*<Loader/>*/}
     <Header/>
     <Main/>
